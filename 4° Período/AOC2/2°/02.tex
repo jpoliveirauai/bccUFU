@@ -1,0 +1,240 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+%%%\usepackage{identfirs}}
+\setlength{\parindent}{2cm}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\large UNIVERSIDADE FEDERAL DE UBERLANDIA \\
+\vspace{6cm}
+Tipos de HDL e Compiladores de alto nível para FPGA
+\vspace{2cm}
+\begin{flushright}
+João Paulo de Oliveira\\
+11611BCC046\\
+Graduando em ciência da computação
+\end{flushright}
+\vspace{8cm}
+Uberlândia\\
+2017
+\end{center}
+\end{titlepage}
+\section{Tipos de HDL}
+\subsection{VHDL}
+O VHDL foi desenvolvido  pelo Departamento de defesa dos Estados Unidos na década 1980 para documentar o comportamento das ASICs do equipamento vendido às Forças Armadas americanas. É baseada em Pascal e ADA.
+Com o sucesso do uso do VHDL, a sua definição se tornou de domínio público, assim ela foi padronizada pela IEEE  (Institute of Electrical and Electronic Engineers). Vejamos um pouco de sua sintaxe:
+\begin{itemize}
+\item {\bf Comentários:} Os comentários são iniciados por "--" e terminam no final da linha. 
+
+\item {\bf Entity:} Onde é descrito a interface para descrever as entradas e saídas. Exemplo:
+\begin{verbatim}
+entity ANDGATE is 
+.....         --código da entidade
+end ANDGATE;
+\end{verbatim}
+\item {\bf Architecture:} É o corpo do sistema, onde são feitas as atribuições, operações, etc. Podem existir várias architecture dentro da mesma entity. Exemplo:
+\begin{verbatim}
+architecture RTL of ANDGATE is 
+begin
+	...
+end RTL;
+\end{verbatim}
+\item {\bf Principais operadores:}
+\begin{itemize}
+\item {\bf +}\quad  soma ou identidade
+\item {\bf -}\quad subtração ou negação
+\item {\bf mod}\quad módulo
+\item {\bf rem}\quad operador mod
+\item {\bf <=}\quad atribuição
+\item {\bf /=}\quad diferente
+\end{itemize}
+\item {\bf After:} After tem a finalidade de ativar o estado indicado depois de determinado tempo. Exemplo:
+\begin{verbatim}
+A <= '1' after 1s, '5' after 10s;
+\end{verbatim}
+\item {\bf Wait:} Faz o processador gastar ciclos sem executar nenhuma ação na forma de segundos. Exemplo:
+\begin{verbatim}
+X <= '8';
+wait for 30s;
+\end{verbatim}
+%\newline
+Exemplo de código de uma porta lógica AND:
+\begin{verbatim}
+-- importa std_logic da IEEE library
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+-- Declara a entidade da porta
+entity PORTAAND is
+   port ( 
+         A : in std_logic;
+         B : in std_logic;
+         S: out std_logic);
+end PORTAAND;
+architecture E of PORTAAND is
+begin
+
+  S <= A and B;
+
+end E;
+\end{verbatim}
+\end{itemize}
+
+\subsection{Verilog}
+O Verilog é uma HDL padronizada pela IEEE que suporta a projeção, verificação e implementação de projetos analógicos, digitais e híbridos em vários níveis de abstração.  Criada por Prabhu Goel e Phil Moorby, durante o inverno de 1983/1984, para a Automated Integrated Design Systems (mais tarde Gateway Design Automation, em 1985). A empresa Gateway Design Automation foi comprada pela Cadence Design Systems em 1990. Vejamos um pouco de sua sintaxe, que é bem parecida com a linguagem C:
+\begin{itemize}
+\item {\bf Comentários:} // para comentar até o final da linha.
+\item {\bf Estado lógico:}
+\begin{itemize}
+\item 1 - Um lógico
+\item 0 - Zero lógico
+\item Z - Alta impedância
+\item X - Valor indefinido (pode ser qualquer um)
+\end{itemize}
+\item {\bf Principais operadores:}
+\begin{itemize}
+\item  {\bf +} \quad Soma binária
+\item  {\bf -} \quad Subtração binária
+\item  {\bf ~} \quad Negação bit à bit
+%\item  {\bf & } \quad Negação bit à bit
+\item  {\bf |} \quad Negação bit à bit
+\item  {\bf =} \quad Atribuição
+\item  {\bf ==} \quad Comparação
+\end{itemize}
+\item {\bf Exemplo de Código:}
+\begin{verbatim} 
+module EXEMPLO_AND(x,y,out); //declaracao do modulo AND
+input wire a, b; // entrada de dados
+output wire s; // saida de dados
+assign s = a & b; //AND com a chamada assign
+endmodule // final do modulo AND
+\end{verbatim}
+\end{itemize}
+\subsection{SystemVerilog}
+\begin{figure}[!htb]
+\includegraphics[scale=1]{./imagens/240px-SystemVerilog_logo.png}
+\centering
+\end{figure}
+O SystemVerilog foi iniciado com a doação da Superlog language para a empresa Accellera em 2002. Ele é uma combinação de uma HDL e uma linguagem de verificação de hardware, é baseada em Vera, VHDL e Verilog. A sua sintaxe é uma extensão do Verilog, porém, ela oferece alguns itens adicionais, por exemplo:
+\begin{itemize}
+\item {\bf Novos tipos de dados:}
+\begin{itemize}
+\item{\bf String: São vetores de caracteres. Exemplo:}
+\begin{verbatim}
+string s1 = "Hello";
+string s2 = "world";
+string p = ".?!";
+string s3 = {s1, ", ", s2, p[2]}; //Concatena string
+$display("%s",s3); //Resulta: "Hello, world!"
+\end{verbatim}
+\item {\bf Tipos de dados enumerados:} Permite que palavras (não reservadas) possam ser assimiladas à valores crescentes. \newline Exemplo:
+\begin{verbatim}
+typedef enum logic [2:0] {
+   Vermelho, Verde, Azul, Magenta, Amarelo
+} color_t;
+\end{verbatim}
+\item {\bf Vetor dinâmico:} Um vetor que pode ser de tamanho variável. Exemplo:
+\begin{verbatim}
+int Vetor[]; //Vetor dinâmico que pode ser alocado posteriormente
+\end{verbatim}
+\end{itemize}
+\item {\bf Orientação à objetos:} As classes são suportadas no SystemVerilog que oferecem funções de manipulação semelhante ao C++ como encapsulamento, Polimorfismo, Herança, a palavra reservada "new" se refere ao construtor automático e a linguagem também possui um Coletor de Lixo para objetos não referenciados. Exemplo:
+\begin{verbatim}
+virtual class Memory;
+    virtual function bit [31:0] read(bit [31:0] addr); endfunction
+    virtual function void write(bit [31:0] addr, bit [31:0] data); endfunction
+endclass
+
+class SRAM #(parameter AWIDTH=10) extends Memory;
+    bit [31:0] mem [1<<AWIDTH];
+
+    virtual function bit [31:0] read(bit [31:0] addr);
+        return mem[addr];
+    endfunction
+
+    virtual function void write(bit [31:0] addr, bit [31:0] data);
+        mem[addr] = data;
+    endfunction
+endclass
+
+\end{verbatim}
+\end{itemize}
+\section{Compiladores de Alto nível para FPGA}
+\subsection{C$\lambda$ash}
+O "clash" como é pronunciado, é uma linguagem de descrição de hardware funcional baseada na linguagem Haskell. O compilador C$\lambda$ash transforma as descrições de alto nível para VHDL, Verilog ou SystemVerilog que são descrições de baixo nível. Exemplo de código:
+\begin{verbatim}
+module MAC where
+import CLaSH.Prelude
+ma acc (x,y) = acc + x * y
+\end{verbatim}
+O código acima foi feito para um arquivo com nome MAC, que dever corresponder ao nome do módulo descrito na primeira linha. Na segunda linha é importado a biblioteca necessária para o funcionamento do programa. Na terceira linha é feita a função "ma" que recebe as variáveis x,y e acc e faz a operação $acc + (x = y)$. Exemplo de uso:
+\begin{verbatim}
+>>> ma 2 (6,8)
+50
+\end{verbatim}
+
+\subsection{Chisel}
+Chisel é uma linguagem construtora de hardware desenvolvida em UC Berkeley que suporta hardware avançado usando geradores altamente parametrizados. Incorporada na linguagem Scala de programação, a Chisel utiliza hierarquia, orientação à objetos, possui também uma construção funcional combinada com tipos abstratos de dados resultando em uma tradução para a linguagem de baixo nível Verilog. Exemplo de código:
+\begin{verbatim}
+import chisel3._
+import scala.collection.mutable.ArrayBuffer
+
+/** multiplicador 4 por 4 usando tabela verdade.*/
+class Mul extends Module {
+  val io = IO(new Bundle {
+    val x   = Input(UInt(4.W))
+    val y   = Input(UInt(4.W))
+    val z   = Output(UInt(8.W))
+  })
+  val muls = new ArrayBuffer[UInt]()
+
+  for (i <- 0 until 16)
+    for (j <- 0 until 16)
+      muls += (i * j).U(8.W)
+  val tbl = Vec(muls)
+  io.z := tbl((io.x << 4.U) | io.y)
+}
+\end{verbatim}
+
+\subsection{MyHDL}
+O MyHDL é a tradução automática da linguagem Python em uma linguagem de descrição e verificação de hardware como VHDL ou Verilog, que é Open Source e foi desenvolvida por Jan Decaluwe. O MyHDL possui orientação à objeto desenvolvimento orientado a teste (TDD), testes funcionais, bibliotecas  prontas com diversas funcionalidades implementadas (manipulação de texto, funções matemáticas, parte gráfica e etc.) e tudo mais que faz parte do universo Python está disponível para desenvolvimento de hardware com o MyHDL.
+
+\subsection{SystemC}
+O SystemC, desenvolvido pela Accellera, é um conjunto de classes e macros do C++ que possuem  simulação de manipulação de eventos, bem como os tipos de dados oferecidos pelo C++. Em certos aspectos, a linguagem imita deliberadamente  a semântica do VHDL e do Verilog. O SystemC também traz uma simulação de kernel \cite{PS2}. Veja um exemplo de código de um somador:
+
+\begin{verbatim}
+#include "systemc.h"
+
+SC_MODULE(adder){          // declaração do módulo (class)
+  sc_in<int> a, b;        // portas
+  sc_out<int> sum;
+
+  void do_add(){           // processo
+    sum.write(a.read() + b.read()); //or just sum = a + b
+  }
+
+  SC_CTOR(adder){          // construtor
+    SC_METHOD(do_add);    
+    sensitive << a << b;
+  }
+};
+\end{verbatim}
+\section*{Referências}
+Disponível em: <https://pt.stackoverflow.com/questions/216032/vhdl-\%C3\%A9-linguagem-de-programa\%C3\%A7\%C3\%A3o> acesso em 01 set. de 2017  \newline \newline
+Disponível em: $<https://edisciplinas.usp.br/pluginfile.php/3020729/mod_resource/content/0/Aula\%20VHDL\%20Alternativa.pdf>$ acesso em 01 set. de 2017 \newline  \newline
+Disponível em: <https://www.embarcados.com.br/tutorial-de-verilog-operadores/> acesso em 01 set. de 2017 \newline \newline
+Disponível em: <http://www.verilog.com/> acesso em 01 set. de 2017 \newline  \newline
+Disponível em: <https://www.embarcados.com.br/myhdlhardwarepython/> acesso em 01 set. de 2017 \newline \newline
+Disponível em: <http://www.myhdl.org/> acesso em 01 set. de 2017 \newline
+Disponível em: <https://www.fpgarelated.com/showarticle/25.php> acesso em 01 set. de 2017 \newline \newline
+Disponível em: <http://www.accellera.org/downloads/standards/systemc> acesso em 01 set. de 2017 \newline  \newline
+Disponível em: <https://chisel.eecs.berkeley.edu/> acesso em 01 set. de 2017 \newline \newline
+Disponível em: <http://www.clash-lang.org/> acesso em 01 set. de 2017 \newline \newline
+Disponível em: <https://hackage.haskell.org/package/clash-prelude-0.11.2/docs/CLaSH-Tutorial.html> acesso em 01 set. de 2017 \newline
+
+\end{document}

@@ -1,0 +1,5 @@
+\select@language {brazil}
+\contentsline {section}{\numberline {1}Descri\IeC {\c c}\IeC {\~a}o geral do problema}{3}
+\contentsline {section}{\numberline {2}Requisitos funcionais}{3}
+\contentsline {section}{\numberline {3}Requisitos n\IeC {\~a}o funcionais}{4}
+\contentsline {section}{\numberline {4}Diagrama de classes}{4}

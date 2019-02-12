@@ -1,0 +1,11 @@
+tipos de hdl
+vhdl
+verilog
+systemverilog
+
+
+Compiladores de alto nível
+clash - haskel
+Chisel - scale
+MYhdl - python
+SystemC  - C

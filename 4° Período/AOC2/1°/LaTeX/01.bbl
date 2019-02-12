@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+
+\bibitem{NES}
+Alexander.
+\newblock Nes on fpga (de2-115), June 2013.
+
+\bibitem{Mapeamento}
+Renato Perez Ribas Leomar Soares da Rosa Junior André Inácio~Reis Felipe~de
+  Sousa~Marques, Osvaldo Martinello~Junior.
+\newblock Mapeamento tecnológico no projeto de circuitos integrados digitais.
+
+\bibitem{Equalizador}
+jonathan~martinez moreno.
+\newblock Ecualizador de audio de 4 bandas en fpga cyclone ii, 2016.
+
+\bibitem{OSCILOSCOPIO}
+minos197.
+\newblock Dual channel buffered fpga oscilloscope, 2013.
+
+\bibitem{PS2}
+Marcelo~Schiavon Porto.
+\newblock Playstation 2.
+
+\bibitem{INTEL}
+Agam Shah.
+\newblock Intel promete novos chips para inteligência artificial no próximo
+  ano, 2016.
+
+\bibitem{MIPS}
+Alex Voica.
+\newblock Five most iconic devices to use mips cpus, June 2016.
+
+\end{thebibliography}

@@ -1,0 +1,62 @@
+%:-op(1000,xfx,concatena).
+concatena([],[X|Y],[X|Y]).
+concatena([X|Y],Y1,[X|T]):-
+	concatena(Y,Y1,T).
+:-op(1200,xfy,e).
+e():-,.
+n_esimo(1,[X|_],X).
+n_esimo(R,[_|Y],A):-
+	n_esimo(R1,Y,A),
+	R is R1+1.
+
+nelementos(0,[]).
+nelementos(R,[_|Y]):-
+	nelementos(R1,Y),
+	R is R1+1.
+
+tiraelemento(X,[X|Y],Y).
+tiraelemento(_,[],[]).
+tiraelemento(A,[X|Y],[X|O]):-
+	A\=X,
+	tiraelemento(A,Y,O).
+retira(_,[],[]).
+retira(A,[A|B],B):-
+	retira(A,B,_).
+retira(A,[X|Y],[X|L]):-
+	A\=X,
+	retira(A,Y,L).
+adiciona_fim(X,L,A):-
+	concatena(L,[X],A).
+ultimo([X],X):-!.
+ultimo([_|Y],A):-
+	ultimo(Y,A).
+ordena_cre([X],[X]).
+ordena_cre([X|Y],A):-
+	X<Y,
+	ordena_cre([X|Y],A).
+ordena_cre([X|Y],_):-
+	X>Y,
+	adiciona_fim(X,Y,L),
+	ordena_cre(L,X).
+
+:-op(1200,xfx,estuda).
+estuda(_,_).
+
+my_reverse(L1,L2) :- my_rev(L1,L2,[]).
+
+my_rev([],L2,L2) :- !.
+my_rev([X|X1],L2,Acc) :-
+	my_rev(X1,L2,[X|Acc]).
+:-op(600,fy,--).
+--(X):-
+   X is X*(-1)*(-1).
+:-op(0, xfx,mais).
+:-op(0,xfx,eh).
+eh(_,_).
+eh(X,A):-
+	X = A.
+eh(X,A):-
+	X is A.
+mais(A,B):-
+
+	A+B.

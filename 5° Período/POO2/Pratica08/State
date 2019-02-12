@@ -1,0 +1,13 @@
+Padrão state
+        -O estado muda automaticamente
+                -Através do estado anterior
+        -Parece Strategy
+                -Semelhança: Modela estados
+                -Diferença: Estados mudam automaticamente
+        -Composição
+        -Componentes
+                -Contexto
+                -Estado
+                -Estados Concretos: Implementa o comportamento de um estados
+        -Context: Interface com o cliente
+                -Instancia um ConcreteState que é o estado atual
