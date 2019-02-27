@@ -1,0 +1,19 @@
+pai(pedro,maria).
+pai(pedro,joao).
+pai(pedro,pedrinho).
+filho(X,Y):-
+	pai(Y,X).
+
+
+
+
+
+
+
+
+
+
+
+
+
+

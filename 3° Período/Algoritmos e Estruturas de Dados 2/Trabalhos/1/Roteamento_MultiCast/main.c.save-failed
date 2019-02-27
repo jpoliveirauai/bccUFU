@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "matriz_adjacencias.h"
+#include "lista_adjacencias.h"
+int main(){
+    grafo_ma *g = cria_grafo_ma(10);
+    insere_aresta_ma(&g,1,2,1,2,3,4);
+    if(ehAdjacente_ma(g,1,2))printf("oi");
+    remove_aresta_ma(&g,1,2);
+    libera_grafo_ma(g);
+    return 0;
+}
