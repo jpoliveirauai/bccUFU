@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void start(int* sujeira,int* posicao);
+void aspirar(int* sujeira,int* posicao);
+
+int main()
+{
+
+    int posicao[2];
+    int sujeira[2];
+
+    start(sujeira,posicao);
+    aspirar(sujeira,posicao);
+
+
+    return 0;
+}
+
+void start(int* sujeira,int* posicao)
+{
+
+    sujeira[0] = 1;
+    sujeira[1] = 1;
+    posicao[0] = 1;
+    posicao[1] = 0;
+
+}
+void aspirar(int* sujeira,int* posicao)
+{
+
+    while(sujeira[0] == 1 || sujeira[1] == 1)
+    {
+
+        if(posicao[0] == 1)
+        {
+            if(sujeira[0] == 1)
+            {
+                sujeira[0] = 0;
+                printf("limpou 0\n");
+            }
+            else
+            {
+                posicao[0] = 0;
+                posicao[1] = 1;
+                printf("moveu para 1\n");
+            }
+        }
+
+        if(posicao[1] == 1)
+        {
+            if(sujeira[1] == 1)
+            {
+                sujeira[1] = 0;
+                printf("limpou 1\n");
+            }
+            else
+            {
+                posicao[1] = 0;
+                posicao[0] = 1;
+                printf("moveu para 0\n");
+            }
+        }
+
+    }
+
+    printf("Terminou!");
+
+}
+
+
