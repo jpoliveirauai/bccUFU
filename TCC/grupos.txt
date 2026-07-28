@@ -1,0 +1,5 @@
+Grupos:
+	- Memory Buffer Errors - (1218)
+	- String Errors - (133)
+	- Numeric Errors - (189)
+

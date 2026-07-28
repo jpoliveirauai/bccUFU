@@ -1,0 +1,1 @@
+This folder is for external programs like NCD, BIONJ and FigTree

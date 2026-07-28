@@ -1,0 +1,1 @@
+This folder is for the first CSV sorting, done by LibreOffice

@@ -1,0 +1,1 @@
+This folder is for dictionaries of the item and this DNA sequence
