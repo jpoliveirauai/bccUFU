@@ -17,8 +17,10 @@ Disciplinas com programação no curso de bacharel em Ciência da Computação n
   - [PG1](http://www.portal.facom.ufu.br/system/files/conteudo/gbc072-projeto-de-graduacao-1.pdf) — Projeto de Graduação 1
   - [SEG](http://www.portal.facom.ufu.br/system/files/conteudo/gbc235-topicos-especiais-de-seguranca-da-informacao.pdf) — Tópicos Especiais de Segurança da Informação
   - `notebooks` — exercícios extras (ex. Spark)
-- **8° Período** — MS, PPI, R2, SEG
+- **8° Período** — MS, PI, PPI, R2, SEG
 
 ## Projetos relacionados
 
 - **FlappyNeuron** — rede neural perceptron multicamadas (multilayer perceptron) treinada para jogar Flappy Bird, feita como trabalho de Inteligência Computacional do 7° Período.
+- **IC** — Iniciação Científica sobre sistemas operacionais embarcados/RTOS (comparação de linguagens e SOs como FreeRTOS, Zephyr, TizenRT, MBED, RIOT, Contiki, TinyOS). O código-fonte de terceiros desses SOs (vendorizado, ~5GB duplicados em 3 cópias) foi removido ao mover para este repositório — ver `CLAUDE.md` para detalhes de recuperação.
+- **TCC** — trabalho de conclusão de curso sobre filogenética/análise de CWE: construção e comparação de árvores filogenéticas (BIONJ, Zephyr) a partir de dados de CWE.
