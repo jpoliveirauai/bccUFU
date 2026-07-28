@@ -1,0 +1,31 @@
+- Nome de arquivo
+    - Apenas removendo as barras
+
+- Level:
+    - 1: A
+    - 2: B
+    - 3: C
+    - 4: D
+    - 5: E
+
+- Category: Deixar as 3 primeiras letras
+    - race:         rac
+    - shell:        shel
+    - format:       for
+    - buffer:       buf
+
+- CWE: Substitui cada caracter do número por seu correspondente letra:
+    - 0:    Q
+    - 1:    R
+    - 2:    S
+    - 3:    T
+    - 4:    U
+    - 5:    V
+    - 6:    W
+    - 7:    X
+    - 8:    Y
+    - 9:    Z
+
+- Name (função): copiada inteira
+    - strcpy = strlen = str*
+

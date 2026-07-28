@@ -1,0 +1,76 @@
+Zephyr:
+
+98.1% 	C
+1.0% 	C++
+0.4% 	Assembly
+0.3% 	Python
+0.1%	CMake  
+
+TinyOS:
+
+60.9% 	C 
+20.5% 	C++  
+10.9% 	Java
+4.8% 	Python
+1.7% 	Objective-C
+0.6% 	Shell  
+
+RIOT:
+
+92.8% 	C
+2.0% 	Makefile
+2.0%	C++
+1.7%	Assembly
+1.3%	Python
+0.1%	Shell
+
+Mbed:
+
+93.8% 	C 
+3.6% 	C++  
+1.9%	Assembly
+0.4%	HTML
+0.3%	Python
+
+FreeRTOS:
+
+100% 	C
+
+Contiki:
+
+79.9%   C
+11.7%   Java
+5.0% 	C++
+1.8%	Python
+
+TOTAL
+
+94.19%  C
+2.66%   C++
+1.21%   Assembly
+0.57%   Java
+0.36%   Python
+0.28%   nesC
+0.25%   HTML
+0.14%   Makefile
+0.11%   Objective-C
+0.05%   CMake
+0.04%   Tcl
+0.04%   Perl
+0.04%   Shell
+0.03%   TeX
+0.01%   Batchfile
+0.00%   CSS
+0.00%   JavaScript
+0.00%   XSLT
+0.00%   AMPL
+0.00%   Matlab
+0.00%   Verilog
+0.00%   Ruby
+0.00%   M4
+0.00%   Groovy
+0.00%   Lua
+0.00%   M
+0.00%   Awk
+0.00%   GDB
+
