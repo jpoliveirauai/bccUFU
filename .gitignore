@@ -50,3 +50,61 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# .NET / Visual Studio
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.nupkg
+*.pgc
+*.pgd
+*.tlb
+*.tli
+*.tlh
+.vs/
+
+# Java
+*.class
+*.jar
+*.war
+hs_err_pid*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.dvi
+*.idx
+*.lof
+*.lot
+*.out.ps
+*.ps
+*.run.xml
+*.synctex.gz
+*.toc
+*.fls
+*.fdb_latexmk
+
+# Editors
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
